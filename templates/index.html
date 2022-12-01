@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+<style>
+
+body {
+  background-image: url({{ url_for('static', filename='templates/epitope.JPG') }})
+
+  background-repeat: no-repeat;
+  background-size: 100% 200%;
+}
+</style> 
+</head>
+
+<body background="{{ url_for('static', filename='epitope.JPG') }}">
+ <div class="login"  align="center" >
+	<b><font  style="color:white" "font-family:verdana" size="5"><h1>Covid-19 Epitope Prediction</h1></font></b>
+
+
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="start_position" placeholder="start_position" required="required" /><br><br><br>
+        <input type="text" name="end_position" placeholder="end_position" required="required" /><br><br><br>
+		<input type="text" name="chou_fasman" placeholder="chou_fasman" required="required" /><br><br><br>
+		<input type="text" name="emini" placeholder="emini" required="required" /><br><br><br>
+		<input type="text" name="kolaskar_tongaonkar" placeholder="kolaskar_tongaonkar" required="required" /><br><br><br>
+		<input type="text" name="parker" placeholder="parker" required="required" /><br><br><br>
+    		<input type="text" name="isoelectric_point" placeholder="isoelectric_point" required="required" /><br><br><br>
+    		<input type="text" name="aromaticity" placeholder="aromaticity" required="required" /><br><br><br>  
+   		<input type="text" name="hydrophobicity" placeholder="hydrophobicity" required="required" /><br><br><br>
+    		<input type="text" name="stability" placeholder="stability" required="required" /><br><br><br>  
+ 
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       
+    </form>
+
+   <br>
+   <br>
+     <b><font  style="color:black""font-family:verdana" size="7">{{ prediction_text}}</font></b>
+
+ </div>
+
+
+</body>
+</html>
